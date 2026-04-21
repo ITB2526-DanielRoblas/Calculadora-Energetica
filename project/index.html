@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta
+    name="description"
+    content="Calculadora energética para centros educativos con proyección anual, periodo personalizado y simulación de ahorro a 3 años."
+  />
+  <title>EcoPanel | Calculadora Energética del Instituto Tecnológico</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Sora:wght@600;700&display=swap"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="styles.css" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <div class="page-shell">
+    <header class="hero">
+      <div class="hero__badge">Instituto Tecnológico | FP Superior de Informática</div>
+      <div class="hero__grid">
+        <div class="hero__content">
+          <p class="eyebrow">Dashboard de sostenibilidad educativa</p>
+          <h1>Calculadora energética para analizar consumos y planificar un ahorro real</h1>
+          <p class="hero__lead">
+            Proyecta electricidad, agua, consumibles y limpieza con meses lectivos,
+            estacionalidad y variabilidad operativa. Después, simula un plan de mejora a
+            3 años y verifica si el centro supera el objetivo de ahorro del 30%.
+          </p>
+          <div class="hero__highlights">
+            <span class="highlight">8 cálculos automáticos</span>
+            <span class="highlight">Periodo personalizado</span>
+            <span class="highlight">Simulación de ahorro</span>
+          </div>
+        </div>
+
+        <aside class="hero__panel">
+          <p class="panel-label">Meta institucional</p>
+          <div class="hero__target">
+            <span class="target__value">-30%</span>
+            <span class="target__copy">reducción mínima del índice global de consumo</span>
+          </div>
+          <div class="hero__stats">
+            <div class="hero__stat">
+              <strong id="heroActiveMonths">10</strong>
+              <span>meses activos</span>
+            </div>
+            <div class="hero__stat">
+              <strong id="heroPeriod">Sep-Jun</strong>
+              <span>periodo analizado</span>
+            </div>
+            <div class="hero__stat">
+              <strong id="heroVariability">6%</strong>
+              <span>variabilidad</span>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </header>
+
+    <main class="layout">
+      <section class="panel panel--form">
+        <div class="section-header">
+          <div>
+            <p class="eyebrow">Entrada de datos</p>
+            <h2>Configura el escenario del instituto</h2>
+          </div>
+          <p>
+            Introduce valores anuales actuales y define cómo se comporta el centro durante
+            el curso.
+          </p>
+        </div>
+
+        <form id="calculatorForm" class="calculator-form">
+          <div class="field-grid">
+            <label class="input-group">
+              <span>Electricidad actual (kWh/año)</span>
+              <input type="number" id="electricidad" name="electricidad" min="0" step="1" value="62000" required />
+            </label>
+
+            <label class="input-group">
+              <span>Agua actual (m³/año)</span>
+              <input type="number" id="agua" name="agua" min="0" step="0.1" value="1800" required />
+            </label>
+
+            <label class="input-group">
+              <span>Consumibles de oficina (EUR/año)</span>
+              <input type="number" id="consumibles" name="consumibles" min="0" step="1" value="14500" required />
+            </label>
+
+            <label class="input-group">
+              <span>Productos de limpieza (EUR/año)</span>
+              <input type="number" id="limpieza" name="limpieza" min="0" step="1" value="9300" required />
+            </label>
+
+            <label class="input-group">
+              <span>Crecimiento anual estimado (%)</span>
+              <input type="number" id="crecimiento" name="crecimiento" min="0" max="20" step="0.1" value="3.5" required />
+            </label>
+
+            <label class="input-group">
+              <span>Variabilidad operativa (%)</span>
+              <input type="number" id="variabilidad" name="variabilidad" min="0" max="20" step="0.5" value="6" required />
+            </label>
+
+            <label class="input-group">
+              <span>Inicio del periodo personalizado</span>
+              <select id="mesInicio" name="mesInicio">
+                <option value="1">Enero</option>
+                <option value="2">Febrero</option>
+                <option value="3">Marzo</option>
+                <option value="4">Abril</option>
+                <option value="5">Mayo</option>
+                <option value="6">Junio</option>
+                <option value="7">Julio</option>
+                <option value="8">Agosto</option>
+                <option value="9" selected>Septiembre</option>
+                <option value="10">Octubre</option>
+                <option value="11">Noviembre</option>
+                <option value="12">Diciembre</option>
+              </select>
+            </label>
+
+            <label class="input-group">
+              <span>Fin del periodo personalizado</span>
+              <select id="mesFin" name="mesFin">
+                <option value="1">Enero</option>
+                <option value="2">Febrero</option>
+                <option value="3">Marzo</option>
+                <option value="4">Abril</option>
+                <option value="5">Mayo</option>
+                <option value="6" selected>Junio</option>
+                <option value="7">Julio</option>
+                <option value="8">Agosto</option>
+                <option value="9">Septiembre</option>
+                <option value="10">Octubre</option>
+                <option value="11">Noviembre</option>
+                <option value="12">Diciembre</option>
+              </select>
+            </label>
+          </div>
+
+          <div class="month-selector">
+            <div class="section-header section-header--compact">
+              <div>
+                <p class="eyebrow">Calendario lectivo</p>
+                <h3>Meses con actividad principal</h3>
+              </div>
+              <p>Selecciona los meses en los que el instituto funciona a pleno rendimiento.</p>
+            </div>
+
+            <div class="month-grid">
+              <label class="month-pill"><input type="checkbox" name="mesesActivos" value="1" checked /><span>Ene</span></label>
+              <label class="month-pill"><input type="checkbox" name="mesesActivos" value="2" checked /><span>Feb</span></label>
+              <label class="month-pill"><input type="checkbox" name="mesesActivos" value="3" checked /><span>Mar</span></label>
+              <label class="month-pill"><input type="checkbox" name="mesesActivos" value="4" checked /><span>Abr</span></label>
+              <label class="month-pill"><input type="checkbox" name="mesesActivos" value="5" checked /><span>May</span></label>
+              <label class="month-pill"><input type="checkbox" name="mesesActivos" value="6" checked /><span>Jun</span></label>
+              <label class="month-pill"><input type="checkbox" name="mesesActivos" value="7" /><span>Jul</span></label>
+              <label class="month-pill"><input type="checkbox" name="mesesActivos" value="8" /><span>Ago</span></label>
+              <label class="month-pill"><input type="checkbox" name="mesesActivos" value="9" checked /><span>Sep</span></label>
+              <label class="month-pill"><input type="checkbox" name="mesesActivos" value="10" checked /><span>Oct</span></label>
+              <label class="month-pill"><input type="checkbox" name="mesesActivos" value="11" checked /><span>Nov</span></label>
+              <label class="month-pill"><input type="checkbox" name="mesesActivos" value="12" checked /><span>Dic</span></label>
+            </div>
+          </div>
+
+          <div class="form-actions">
+            <button type="submit" class="btn btn--primary">Calcular escenario</button>
+            <button type="button" id="applyPlanBtn" class="btn btn--secondary">Aplicar plan de reducción</button>
+            <button type="button" id="resetPlanBtn" class="btn btn--ghost">Volver al escenario base</button>
+          </div>
+        </form>
+      </section>
+
+      <section class="kpi-grid" id="summaryGrid"></section>
+
+      <section class="panel">
+        <div class="section-header">
+          <div>
+            <p class="eyebrow">Resultados</p>
+            <h2>Proyecciones calculadas</h2>
+          </div>
+          <p id="periodDescription">Periodo analizado: septiembre a junio.</p>
+        </div>
+        <div class="results-grid" id="resultsGrid"></div>
+      </section>
+
+      <section class="visual-grid">
+        <article class="panel chart-panel">
+          <div class="section-header section-header--compact">
+            <div>
+              <p class="eyebrow">Visual 1</p>
+              <h2>Comparativa por indicador</h2>
+            </div>
+            <p>Se muestran puntos de impacto para comparar recursos con unidades distintas.</p>
+          </div>
+          <canvas id="comparisonChart"></canvas>
+        </article>
+
+        <article class="panel chart-panel">
+          <div class="section-header section-header--compact">
+            <div>
+              <p class="eyebrow">Visual 2</p>
+              <h2>Perfil mensual del centro</h2>
+            </div>
+            <p>La curva mensual refleja estacionalidad, meses lectivos y variabilidad operativa.</p>
+          </div>
+          <canvas id="seasonalityChart"></canvas>
+        </article>
+      </section>
+
+      <section class="panel">
+        <div class="section-header">
+          <div>
+            <p class="eyebrow">Plan obligatorio</p>
+            <h2>Plan de reducción a 3 años</h2>
+          </div>
+          <p>
+            Cada indicador incorpora acciones concretas, impacto estimado y una hoja de ruta
+            progresiva para alcanzar la eficiencia máxima.
+          </p>
+        </div>
+        <div class="plan-grid" id="planGrid"></div>
+      </section>
+
+      <section class="insight-grid">
+        <article class="panel">
+          <div class="section-header section-header--compact">
+            <div>
+              <p class="eyebrow">Diagnóstico</p>
+              <h2>Lectura inteligente del escenario</h2>
+            </div>
+            <p>Mensajes automáticos para explicar si el instituto está cerca de la meta.</p>
+          </div>
+          <div id="statusMessage" class="status-message" aria-live="polite"></div>
+          <div id="savingsBreakdown" class="savings-breakdown"></div>
+        </article>
+
+        <article class="panel">
+          <div class="section-header section-header--compact">
+            <div>
+              <p class="eyebrow">Extra</p>
+              <h2>Consejos para reducir consumo</h2>
+            </div>
+            <p>Medidas sencillas para reforzar la cultura de sostenibilidad del centro.</p>
+          </div>
+          <ul class="tips-list">
+            <li>Programa apagado automático de equipos en aulas y laboratorios fuera del horario lectivo.</li>
+            <li>Centraliza impresiones y fomenta entregas digitales en proyectos y prácticas.</li>
+            <li>Instala reductores de caudal y revisa fugas al comienzo de cada trimestre.</li>
+            <li>Usa productos concentrados y sistemas de dosificación para evitar sobreconsumo.</li>
+            <li>Comparte indicadores de ahorro con alumnado y profesorado para generar hábitos sostenibles.</li>
+          </ul>
+        </article>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <p>&copy; Daniel Roblas y Adam Rkaini | EcoPanel 2026</p>
+    </footer>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
