@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta
+    name="description"
+    content="Publicació web dels resultats de la fase F3 de la calculadora energètica EcoPanel."
+  />
+  <title>EcoPanel | Resultats F3</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Sora:wght@600;700&display=swap"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="page-shell">
+    <header class="hero">
+      <div class="hero__badge">Publicació de dades | Fase F3</div>
+      <div class="hero__grid">
+        <div class="hero__content">
+          <p class="eyebrow">Resultats publicats</p>
+          <h1>Resultats energètics de la fase F3 publicats en format web</h1>
+          <p class="hero__lead">
+            Aquesta pàgina mostra els resultats generats per l'aplicació EcoPanel a partir
+            de l'escenari base del centre. El contingut es publica en una URL pública i
+            reutilitza les dades estructurades del fitxer JSON de la fase F3.
+          </p>
+          <div class="hero__highlights">
+            <span class="highlight">Dades publicades</span>
+            <span class="highlight">Format web</span>
+            <span class="highlight">Estructura separada</span>
+          </div>
+        </div>
+
+        <aside class="hero__panel">
+          <p class="panel-label">Fitxer font</p>
+          <div class="hero__target">
+            <span class="target__value" id="globalSavingValue">33,4%</span>
+            <span class="target__copy">estalvi global estimat amb el pla de reducció</span>
+          </div>
+          <div class="hero__stats">
+            <div class="hero__stat">
+              <strong id="publishedPeriod">Sep-Jun</strong>
+              <span>període publicat</span>
+            </div>
+            <div class="hero__stat">
+              <strong id="publishedIndex">103,5</strong>
+              <span>índex global base</span>
+            </div>
+            <div class="hero__stat">
+              <strong id="publishedOptimized">68,9</strong>
+              <span>índex optimitzat</span>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </header>
+
+    <main class="layout">
+      <section class="panel">
+        <div class="section-header">
+          <div>
+            <p class="eyebrow">Descripció</p>
+            <h2>Publicació de dades i estructura del projecte</h2>
+          </div>
+          <p>
+            Els fitxers HTML i CSS estan separats, els recursos es troben en directoris
+            específics i les dades generades es publiquen en format web mitjançant aquesta
+            pàgina.
+          </p>
+        </div>
+        <div class="results-grid">
+          <article class="result-card fade-rise">
+            <div class="result-card__top">
+              <div>
+                <p class="result-card__eyebrow">Estructura</p>
+                <h3>Organització correcta</h3>
+              </div>
+              <span class="tag tag--success">Complert</span>
+            </div>
+            <div class="value-stack">
+              <strong>HTML, CSS i dades separades</strong>
+              <small>`index.html`, `styles.css`, `script.js`, `data/fase-f3-resultats.json` i `assets/`.</small>
+            </div>
+          </article>
+          <article class="result-card fade-rise">
+            <div class="result-card__top">
+              <div>
+                <p class="result-card__eyebrow">Publicació</p>
+                <h3>URL pública</h3>
+              </div>
+              <span class="tag tag--success">GitHub Pages</span>
+            </div>
+            <div class="value-stack">
+              <strong>`/project/f3.html`</strong>
+              <small>Aquesta és la pàgina preparada per publicar els resultats de la fase F3.</small>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="kpi-grid" id="f3SummaryGrid"></section>
+
+      <section class="panel">
+        <div class="section-header">
+          <div>
+            <p class="eyebrow">Resultats F3</p>
+            <h2>Dades extretes de la fase F3</h2>
+          </div>
+          <p>
+            El contingut d'aquesta web s'alimenta amb els resultats calculats i publicats en
+            format JSON.
+          </p>
+        </div>
+        <div class="results-grid" id="f3ResultsGrid"></div>
+      </section>
+
+      <section class="panel">
+        <div class="section-header">
+          <div>
+            <p class="eyebrow">Traçabilitat</p>
+            <h2>Fitxer de dades publicat</h2>
+          </div>
+          <p>
+            Les dades publicades es poden consultar també en el fitxer estructurat de la
+            fase F3.
+          </p>
+        </div>
+        <div class="results-grid">
+          <article class="result-card fade-rise">
+            <div class="result-card__top">
+              <div>
+                <p class="result-card__eyebrow">JSON</p>
+                <h3>Fitxer publicat</h3>
+              </div>
+              <span class="tag tag--warning">Dades estructurades</span>
+            </div>
+            <div class="value-stack">
+              <strong><a href="./data/fase-f3-resultats.json">data/fase-f3-resultats.json</a></strong>
+              <small>Font de dades en format reutilitzable per a publicació web o integració futura.</small>
+            </div>
+          </article>
+          <article class="result-card fade-rise">
+            <div class="result-card__top">
+              <div>
+                <p class="result-card__eyebrow">Aplicació</p>
+                <h3>Calculadora principal</h3>
+              </div>
+              <span class="tag tag--success">Interacció</span>
+            </div>
+            <div class="value-stack">
+              <strong><a href="./index.html">Obrir EcoPanel</a></strong>
+              <small>La calculadora principal continua disponible per generar nous escenaris.</small>
+            </div>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <p>&copy; Daniel Roblas y Adam Rkaini | Publicació F3 d'EcoPanel</p>
+    </footer>
+  </div>
+
+  <script>
+    const numberFormat = new Intl.NumberFormat("ca-ES", { maximumFractionDigits: 1 });
+
+    function formatValue(value, unit, currency) {
+      if (currency) {
+        return new Intl.NumberFormat("ca-ES", {
+          style: "currency",
+          currency: "EUR",
+          maximumFractionDigits: 1
+        }).format(value);
+      }
+
+      return `${numberFormat.format(value)} ${unit}`;
+    }
+
+    fetch("./data/fase-f3-resultats.json")
+      .then((response) => response.json())
+      .then((data) => {
+        document.getElementById("globalSavingValue").textContent = `${numberFormat.format(data.ahorroGlobal)}%`;
+        document.getElementById("publishedPeriod").textContent = data.periodo.corto;
+        document.getElementById("publishedIndex").textContent = numberFormat.format(data.indiceGlobalBase);
+        document.getElementById("publishedOptimized").textContent = numberFormat.format(data.indiceGlobalOptimizado);
+
+        const summaryGrid = document.getElementById("f3SummaryGrid");
+        summaryGrid.innerHTML = `
+          <article class="metric-card fade-rise">
+            <div class="metric-card__label">
+              <span>Índex global base</span>
+              <strong class="metric-card__badge">F3</strong>
+            </div>
+            <div class="metric-card__value">${numberFormat.format(data.indiceGlobalBase)} pts</div>
+            <p class="metric-card__detail">Escenari projectat abans d'aplicar el pla de reducció.</p>
+          </article>
+          <article class="metric-card fade-rise">
+            <div class="metric-card__label">
+              <span>Índex optimitzat</span>
+              <strong class="metric-card__badge metric-card__badge--success">Millora</strong>
+            </div>
+            <div class="metric-card__value">${numberFormat.format(data.indiceGlobalOptimizado)} pts</div>
+            <p class="metric-card__detail">Resultat acumulat després del pla de millora a 3 anys.</p>
+          </article>
+          <article class="metric-card fade-rise">
+            <div class="metric-card__label">
+              <span>Estalvi total</span>
+              <strong class="metric-card__badge metric-card__badge--success">Objectiu</strong>
+            </div>
+            <div class="metric-card__value">${numberFormat.format(data.ahorroGlobal)}%</div>
+            <p class="metric-card__detail">El projecte supera l'objectiu mínim del 30% de reducció.</p>
+          </article>
+          <article class="metric-card fade-rise">
+            <div class="metric-card__label">
+              <span>Període publicat</span>
+              <strong class="metric-card__badge">Curs</strong>
+            </div>
+            <div class="metric-card__value">${data.periodo.etiqueta}</div>
+            <p class="metric-card__detail">Resultats específics del període lectiu personalitzat.</p>
+          </article>
+        `;
+
+        const resultsGrid = document.getElementById("f3ResultsGrid");
+        resultsGrid.innerHTML = data.recursos
+          .map((recurso) => `
+            <article class="result-card fade-rise">
+              <div class="result-card__top">
+                <div>
+                  <p class="result-card__eyebrow">Fase F3</p>
+                  <h3>${recurso.nombre}</h3>
+                </div>
+                <span class="tag tag--success">-${numberFormat.format(recurso.ahorroIndicador)}%</span>
+              </div>
+              <div class="value-stack">
+                <strong>Anual: ${formatValue(recurso.anual, recurso.unidad, recurso.moneda)}</strong>
+                <small>Període: ${formatValue(recurso.periodo, recurso.unidad, recurso.moneda)}</small>
+              </div>
+              <div class="comparison-note">
+                Optimitzat: <strong>${formatValue(recurso.optimizadoAnual, recurso.unidad, recurso.moneda)}</strong>
+                | Període optimitzat: <strong>${formatValue(recurso.optimizadoPeriodo, recurso.unidad, recurso.moneda)}</strong>
+              </div>
+            </article>
+          `)
+          .join("");
+      })
+      .catch(() => {
+        document.getElementById("f3ResultsGrid").innerHTML = `
+          <article class="result-card fade-rise">
+            <div class="result-card__top">
+              <div>
+                <p class="result-card__eyebrow">Error</p>
+                <h3>No s'han pogut carregar les dades F3</h3>
+              </div>
+              <span class="tag tag--danger">Revisar</span>
+            </div>
+            <div class="value-stack">
+              <strong>Fitxer no disponible</strong>
+              <small>Comprova que el fitxer JSON s'ha publicat correctament a GitHub Pages.</small>
+            </div>
+          </article>
+        `;
+      });
+  </script>
+</body>
+</html>

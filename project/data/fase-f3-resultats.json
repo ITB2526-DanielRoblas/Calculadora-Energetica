@@ -1,0 +1,59 @@
+{
+  "fase": "F3",
+  "publicatPer": "EcoPanel",
+  "periodo": {
+    "inicio": "septiembre",
+    "fin": "junio",
+    "corto": "Sep-Jun",
+    "etiqueta": "Septiembre - Junio (10 meses)"
+  },
+  "indiceGlobalBase": 103.5,
+  "indiceGlobalOptimizado": 68.9,
+  "ahorroGlobal": 33.4,
+  "recursos": [
+    {
+      "id": "electricidad",
+      "nombre": "Electricidad",
+      "unidad": "kWh",
+      "moneda": false,
+      "anual": 64170,
+      "periodo": 60420.1,
+      "optimizadoAnual": 42205.9,
+      "optimizadoPeriodo": 39739.5,
+      "ahorroIndicador": 34.2
+    },
+    {
+      "id": "agua",
+      "nombre": "Agua",
+      "unidad": "m³",
+      "moneda": false,
+      "anual": 1863,
+      "periodo": 1703.2,
+      "optimizadoAnual": 1283.7,
+      "optimizadoPeriodo": 1173.6,
+      "ahorroIndicador": 31.1
+    },
+    {
+      "id": "consumibles",
+      "nombre": "Consumibles de oficina",
+      "unidad": "EUR",
+      "moneda": true,
+      "anual": 15007.5,
+      "periodo": 14769.4,
+      "optimizadoAnual": 9724.9,
+      "optimizadoPeriodo": 9570.6,
+      "ahorroIndicador": 35.2
+    },
+    {
+      "id": "limpieza",
+      "nombre": "Productos de limpieza",
+      "unidad": "EUR",
+      "moneda": true,
+      "anual": 9625.5,
+      "periodo": 9007.9,
+      "optimizadoAnual": 6479.9,
+      "optimizadoPeriodo": 6064.1,
+      "ahorroIndicador": 32.7
+    }
+  ]
+}

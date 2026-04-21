@@ -63,7 +63,12 @@ Esto lo hace útil en dos contextos:
 ## Estructura del proyecto
 
 ```text
+index.html
 project/
+├── assets/
+├── data/
+│   └── fase-f3-resultats.json
+├── f3.html
 ├── index.html
 ├── styles.css
 └── script.js
@@ -86,6 +91,28 @@ python3 -m http.server 8000
 ```
 
 Después abre `http://localhost:8000`.
+
+## Publicación de datos y fase F3
+
+Para cumplir el requisito de publicar los datos generados por la aplicación en formato web, el proyecto incluye una página específica de resultados:
+
+- `project/f3.html`: página pública con los resultados extraídos de la fase F3.
+- `project/data/fase-f3-resultats.json`: archivo estructurado con los datos publicados.
+- `project/assets/`: directorio reservado para recursos como imágenes u otros elementos visuales.
+
+Si publicas el repositorio con GitHub Pages, la URL pública de la fase F3 quedará con esta estructura:
+
+```text
+https://TU-USUARIO.github.io/TU-REPOSITORIO/project/f3.html
+```
+
+De este modo, la web no solo muestra la calculadora interactiva, sino también una publicación web de resultados generados, separando claramente:
+
+- HTML
+- CSS
+- lógica JavaScript
+- datos publicados
+- recursos estáticos
 
 ## Qué se evalúa o demuestra
 
